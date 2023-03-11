@@ -8,7 +8,7 @@
 
 ---
 
-Example DB URL - `mongodb+srv://oleh:react-advanced-1@cluster0.2gm8e.mongodb.net/?retryWrites=true&w=majority`
+Example DB URL - `mongodb+srv://oleh:react-advanced-1@cluster0.2gm8e.mongodb.net/news-ua?retryWrites=true&w=majority`
 
 ## Endpoints
 
