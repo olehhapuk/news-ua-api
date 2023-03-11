@@ -6,6 +6,10 @@
 2. Run `npm ci` to install packages
 3. Run `npm start` to start the server
 
+---
+
+Example DB URL - `mongodb+srv://oleh:react-advanced-1@cluster0.2gm8e.mongodb.net/?retryWrites=true&w=majority`
+
 ## Endpoints
 
 - `GET /api/posts?q=&page=1&perPage=18` - Search posts using query(`q`) with pagination
