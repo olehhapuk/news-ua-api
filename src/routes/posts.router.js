@@ -49,6 +49,9 @@ router.get('/:id', async (req, res, next) => {
       return;
     }
 
+    post.views++;
+    await post.save();
+
     res.status(200).json(post);
   } catch (error) {
     next(error);
