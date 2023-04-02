@@ -4,6 +4,18 @@ const Post = require('../models/Post');
 
 const router = Router();
 
+router.get('/top', async (req, res, next) => {
+  try {
+    const posts = await Post.find().sort({
+      views: 'desc',
+    });
+
+    res.status(200).json(posts.slice(0, 5));
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get('/', async (req, res, next) => {
   try {
     const { q = '', page = 1, perPage = 18 } = req.query;
@@ -14,10 +26,7 @@ router.get('/', async (req, res, next) => {
         $options: 'i',
       },
     };
-    const posts = await Post.find(searchFilter, null, {
-      limit: +perPage,
-      skip: (+page - 1) * +perPage,
-    });
+    const posts = await Post.find(searchFilter).sort({ createdAt: 'desc' });
     const postsCount = await Post.count(searchFilter);
 
     res.status(200).json({
